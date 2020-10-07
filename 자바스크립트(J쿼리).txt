@@ -1,4 +1,4 @@
-﻿* 변수 종류
+* 변수 종류
 
 전역 변수 : 전역에서 사용하는 데이터를 담는 변수이며 어디서든 접근해서 사용 가능하다.
 
@@ -1700,7 +1700,7 @@ hello("우정호");
 function hello(name, count){
 	document.write(name+"님"+count+"번째 방문을 환영합니다");
 	}
-hello("딴동네",10);
+hello("woojungho",10);
 
 
 함수 매개변수에 데이터를 전달하는 방법은 함수를 호출할 때 데이터를 넣어 호출해 준다.
@@ -1710,34 +1710,34 @@ hello("딴동네",10);
 function hello(name, count){
 	document.write(name+"님 " + count + "번째 방문을 환영합니다.");
 }
-hello("딴동네", 10);
+hello("woojungho", 10);
 
-hello()를 실행하면 " 딴동네 " 데이터는 name에, 10은 count에 저장된다.
+hello()를 실행하면 " woojungho " 데이터는 name에, 10은 count에 저장된다.
 이는 일반 변수를 만들면서 데이터 초기화시키는 것과 같다.
 
-name = "딴동네";
+name = "woojungho";
 count = 10;
 
 그리고 데이터를 보내는 위치는 정해져 있기 때문에 위치에 맞춰 데이터를 보내야 한다.
 
-예를 들어 hello(10, "딴동네"); 처럼 함수를 호출하면 매개 변수에는 다음처럼 저장돼 예상과는 전혀 다른 값이 출력된다.
+예를 들어 hello(10, "woojungho"); 처럼 함수를 호출하면 매개 변수에는 다음처럼 저장돼 예상과는 전혀 다른 값이 출력된다.
 
 name = 10;
-count = "딴동네";
+count = "woojungho";
 
 실행결과 )
 
-10님 딴동네번째 방문을 환영합니다.
+10님 woojungho번째 방문을 환영합니다.
 
 또한 다음과 같이 매개변수가 두 개인데 값을 하나만 보내는 경우
 
-hello("딴동네");
+hello("woojungho");
 
-name에는 딴동네, count에는 undefined가 저장된다.
+name에는 woojungho, count에는 undefined가 저장된다.
 
 결과 )
 
-딴동네님 undefined번째 방문을 환영합니다.
+woojungho님 undefined번째 방문을 환영합니다.
 
 * argument란?
 
@@ -1775,7 +1775,7 @@ function showInfo(){
 	console.log("1 = "+arguments[1]);
 	alert("안녕하세요. "+arguments[0]+"님의 나이는 "+arguments[1] + "입니다.");
 }
-showInfo("딴동네", 30);
+showInfo("woojungho", 30);
 
 * 리턴값이 있는 함수 만들기
 
@@ -1873,12 +1873,12 @@ function hello(name){
 }
 hello("웹동네");
 var func = hello;
-func("딴동네");
+func("woojungho");
 
 결과)
 
 웹동네님 환영합니다.
-딴동네님 환영합니다.
+woojungho님 환영합니다.
 
 예제처럼 변수에 함수를 저장하면 변수를 함수처럼 사용할 수 있다.
 
@@ -3182,7 +3182,7 @@ var str = "abcdef";
 
 slice와 substr의 차이점
 
-/*var data = "닉네임딴동네";
+/*var data = "닉네임woojungho";
         var result = data.slice(0,3)+"-"+data.slice(3,data.length);
         document.write(result);*/
         //slice(start,end)는 특정 부분 복사
@@ -3225,11 +3225,11 @@ newvalue : 교체 문자
 
 예시)
 
- var data="닉네임-딴동네";
+ var data="닉네임-woojungho";
        var result = data.slice(0,3)+data.slice(4,data.length);
        alert(result);
 
-이렇게 되면 닉네임-딴동네중에 - 만 빼고 닉네임딴동네만 가져오게 된다.
+이렇게 되면 닉네임-woojungho중에 - 만 빼고 닉네임woojungho만 가져오게 된다.
 
 
 문자열중 앞쪽 빈공간 빼고 나머지 표현하기 예)
@@ -3836,14 +3836,14 @@ sort()를 이용해 오름차순으로 문자를 정렬하고 싶으면 compareF
 })
 
 사용 예)
-	var menuItems = ["영희", "철수", "미자", "진수","딴동네"];
+	var menuItems = ["영희", "철수", "미자", "진수","woojungho"];
             document.write("실행 전 : " + menuItems.join(",")+"<br>");
 
             menuItems.sort();
             document.write("실행 후 : " + menuItems.join(","));
 
-//실행 전 : 영희,철수,미자,진수,딴동네
-실행 후 : 딴동네,미자,영희,진수,철수
+//실행 전 : 영희,철수,미자,진수,woojungho
+실행 후 : woojungho,미자,영희,진수,철수
 
 2). 문자를 내림차순 정렬
 
@@ -3854,15 +3854,15 @@ var result = 배열.sort(function(a,b){
 	return b>a;
 });
 
-var userNames = ["영희", "철수", "미자", "진수", "딴동네"];
+var userNames = ["영희", "철수", "미자", "진수", "woojungho"];
             console.log("실행 전 : " + userNames.join(","));
             userNames.sort(function(a, b) {
                 return b > a;
             });
             console.log("실행 후 : " + userNames.join(","));
 
-//실행 전 : 영희, 철수, 미자, 진수, 딴동네
-  실행 후 : 철수, 영희, 미자, 딴동네, 진수
+//실행 전 : 영희, 철수, 미자, 진수, woojungho
+  실행 후 : 철수, 영희, 미자, woojungho, 진수
 
 3). 숫자 정렬하기
 
