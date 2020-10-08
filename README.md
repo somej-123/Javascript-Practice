@@ -1,5 +1,5 @@
 # Javascript-Practice
-##-20/10/08-##
+##-20/10/07-##
 
 slide.html
 가로 슬라이드 예제문 추가
@@ -9,3 +9,5 @@ ScrollSlide.html
 
 
 Javascript(jquery포함) 연습장 추가
+
+##-20/10/08-##
