@@ -10,4 +10,7 @@ ScrollSlide.html
 
 Javascript(jquery포함) 연습장 추가
 
-##-20/10/08-##
+##-20/10/0-##
+
+ScrollSlide.html
+오른쪽 내비게이션의 원 클릭시 해당 영역 위치로 슬라이드 가능하게 적용
