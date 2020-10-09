@@ -78,12 +78,23 @@
         $(document).ready(function(){
             var $dotli = $('.dot').children('li');
             var $slide = $('.test').children('div');
+            var topPos = 0;
             var $index = 0;
+
             $dotli.click(function(){
                 $index = $(this).index();
+                topPos = $slide.eq($index).offset();
                 console.log($index);
+                console.log(topPos);
                 $dotli.eq($index).addClass('on').siblings().removeClass('on');
+                if($dotli.eq($index).is('.on') == true){
+                    $('html').animate({scrollTop : topPos.top}, 400);
+                }
             });
+
+            $(document).scroll(function(e){
+
+            })
         });
     </script>
 </body>
