@@ -13,6 +13,8 @@
         body{
             width: 100%;
             margin: 0 auto;
+            height: 100%;
+            overflow: hidden;
         }
         .test{
             width: 100%;
@@ -76,25 +78,70 @@
     </div>
     <script>
         $(document).ready(function(){
-            var $dotli = $('.dot').children('li');
-            var $slide = $('.test').children('div');
-            var topPos = 0;
-            var $index = 0;
+            var $dotli = $('.dot').children('li'); //오른쪽 슬라이드 네비게이션
+            var $slide = $('.test').children('div'); //section 영역
+            var topPos = 0; // section영역의 위치값
+            var $index = 0; // index값
+            var $scrollHeight = 0
 
-            $dotli.click(function(){
-                $index = $(this).index();
-                topPos = $slide.eq($index).offset();
+            $dotli.click(function(){ //오른쪽 네비게이션의 버튼 클릭시
+                $index = $(this).index(); // 해당 버튼을 클릭시 숫자로 표현
+                topPos = $slide.eq($index).offset(); // div영역의 ?번째로 위치값 저장
                 console.log($index);
                 console.log(topPos);
-                $dotli.eq($index).addClass('on').siblings().removeClass('on');
-                if($dotli.eq($index).is('.on') == true){
-                    $('html').animate({scrollTop : topPos.top}, 400);
+                $dotli.eq($index).addClass('on').siblings().removeClass('on'); // 해당 dot의 클래스 생성및 나머지 dot은 클래스 삭제
+                if($dotli.eq($index).is('.on') == true){//만약 dot에 클래스 on이 있는것이 맞다면
+                    $('html').animate({scrollTop : topPos.top}, 400);//문서의 위치값을 div ?번째 영역으로이동
                 }
             });
+            $("body").on("mousewheel", function (event) {// 휠을 돌렸을때 아래로 움직이는지 위로 움직이는지 표현
+                 console.log(event.originalEvent.wheelDelta);//아래로 내리면 음수 값 위로올리면 양수 값
+                 var a = event.originalEvent.wheelDelta;
+                 if($index == 0 && a == -150){
+                     $index++;
+                     $("body").stop().animate({
+                         "margin-top":0
+                        })
+                 }
+                 if($index == 1 && a == -150){
+                    $index++;
+                     $("body").stop().animate({
+                         "margin-top":-1000
+                        })
+                 }
+                 if($index == 2 && a == -150){
+                    $index++;
+                     $("body").stop().animate({
+                         "margin-top":-2000
+                        })
+                 }
+                 if($index == 3 && a == -150){
+                    $index++;
+                     $("body").stop().animate({
+                         "margin-top":-3000
+                        })
+                 }
+                });
 
-            $(document).scroll(function(e){
-
-            })
+            /*$(window).scroll(function(event){//창을 스크롤 했을시
+                console.log($(window).scrollTop());// 창의 스크롤 현 위치를 알려준다.
+                console.log($('.test>div').height())
+                if($('html').scrollTop()>500){//html문서의 높이가 500보다 높다면
+                    $slide.eq(1).animate({//두번째 div영역의 불투명도를 1로 0.4초만큼 설정한다.
+                        opacity:1
+                    },400);
+                }
+                if($('html').scrollTop()>1500){
+                    $slide.eq(2).animate({
+                        opacity:1
+                    },400);
+                }
+                if($('html').scrollTop()>2500){
+                    $slide.eq(3).animate({
+                        opacity:1
+                    },400);
+                }
+            });*/
         });
     </script>
 </body>
