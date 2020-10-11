@@ -94,29 +94,31 @@
                     $('html').animate({scrollTop : topPos.top}, 400);//문서의 위치값을 div ?번째 영역으로이동
                 }
             });
-            $("body").on("mousewheel", function (event) {// 휠을 돌렸을때 아래로 움직이는지 위로 움직이는지 표현
+            $("html").on("mousewheel", function (event) {// 휠을 돌렸을때 아래로 움직이는지 위로 움직이는지 표현
                  console.log(event.originalEvent.wheelDelta);//아래로 내리면 음수 값 위로올리면 양수 값
                  var a = event.originalEvent.wheelDelta;
                  if($index == 0 && a == -150){
                      $index++;
+                     $dotli.eq($index).addClass('on').siblings().removeClass('on');
+                 }
+                 if($index == 1 && a == 150){
+                     $index--;
+                     $dotli.eq($index).addClass('on').siblings().removeClass('on');
                      $("body").stop().animate({
                          "margin-top":0
-                        })
+                        });
                  }
                  if($index == 1 && a == -150){
-                    $index++;
                      $("body").stop().animate({
                          "margin-top":-1000
                         })
                  }
                  if($index == 2 && a == -150){
-                    $index++;
                      $("body").stop().animate({
                          "margin-top":-2000
                         })
                  }
                  if($index == 3 && a == -150){
-                    $index++;
                      $("body").stop().animate({
                          "margin-top":-3000
                         })
