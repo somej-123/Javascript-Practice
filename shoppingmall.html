@@ -35,6 +35,7 @@
     <button class="btn_up">증가</button>
     <button class="btn_down">감소</button>
     <div id="result">0</div>
+    <div id="price">가격 : 0 원</div>
     <script>
         var cf = false ;//if문을 사용하기 위해서 스위치를 만들어줌 (순서1)
         var a = 0 //들어갈 값
@@ -78,6 +79,7 @@
             $(".btn_up").click(function(){//증가라는 것을 클릭하면
                 a++;//a 변수값 1증가
                 $('#result').text(a);//div 값에 a변수값을 출력(대입)
+                $("#price").text("가격 : "+18700*a+"원");//가격 책정
             });
             $(".btn_down").click(function(){//감소라는 것을 클릭했을때
                 if(a<=0){//만약 a 의 값이 0보다 작거나 같을 경우
@@ -85,6 +87,7 @@
             }else{//아니면 감소가 가능하게 만들어줌
                 a--;
                 $('#result').text(a);
+                $("#price").text("가격 : "+18700*a+"원");//가격 책정
             }
             });
         });
