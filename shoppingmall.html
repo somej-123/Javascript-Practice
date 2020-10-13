@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <title>버튼 클릭시 숫자 증가</title>
+    <style>
+        .select div{
+            float: left;
+            width: 50px;
+            height: 30px;
+            margin: 10px 5px;
+            padding: 10px 0;
+            border: 2px solid rgb(228, 228, 228);
+            text-align: center;
+            cursor: pointer;
+        }
+        .on{
+            border: 2px solid rgb(0, 0, 0) !important;
+        }
+        #size{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="select">
+        <div id="s">s</div>
+        <div id="m">m</div>
+        <div id="l">l</div>
+    </div>
+    <div id="size">[필수] Size</div>
+    <br>
+    <button class="btn_up">증가</button>
+    <button class="btn_down">감소</button>
+    <div id="result">0</div>
+    <script>
+        var cf = false ;//if문을 사용하기 위해서 스위치를 만들어줌 (순서1)
+        var a = 0 //들어갈 값
+        $(document).ready(function(){//제이쿼리 
+            $("#s").click(function(){//S부분을 클릭했을 경우
+                if(cf==false){//cf값이 false일때
+                $("#s").addClass("on");//s부분에 on이라는 클래스 생성(디자인 적용)
+                $("#size").text("[필수] s");//size적히는 부분에 어떤 사이즈인지 텍스트 변경
+                cf = true;//cf를 true값으로 변경함으로 else값이 먹히게 해줌
+                }
+                else{//cf가 true라면
+                    $('.select>div').removeClass("on");//현재 s,m,l에 있는 on이라는 클래스를 모두 제거
+                    $("#size").text("[필수] Size");//텍스트도 다시 돌려놓음
+                    cf = false;//cf를 다시 false로 돌려놓고 다시 선택할 수 있게 만들어줌
+                }
+            });
+            $("#m").click(function(){
+                if(cf==false){
+                $("#m").addClass("on");
+                $("#size").text("[필수] m");
+                cf = true;
+                }
+                else{
+                    $('.select>div').removeClass("on");
+                    $("#size").text("[필수] size");
+                    cf = false;
+                }
+            });
+            $("#l").click(function(){
+                if(cf==false){
+                $("#l").addClass("on");
+                $("#size").text("[필수] l");
+                cf = true;
+                }
+                else{
+                    $('.select>div').removeClass("on");
+                    $("#size").text("[필수] size");
+                    cf = false;
+                }
+            });
+            $(".btn_up").click(function(){//증가라는 것을 클릭하면
+                a++;//a 변수값 1증가
+                $('#result').text(a);//div 값에 a변수값을 출력(대입)
+            });
+            $(".btn_down").click(function(){//감소라는 것을 클릭했을때
+                if(a<=0){//만약 a 의 값이 0보다 작거나 같을 경우
+                alert("0보다 아래일순 없습니다.");//경고창
+            }else{//아니면 감소가 가능하게 만들어줌
+                a--;
+                $('#result').text(a);
+            }
+            });
+        });
+    </script>
+</body>
+</html>
