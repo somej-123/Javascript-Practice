@@ -1,5 +1,11 @@
 # Javascript-Practice
 
+## 20/10/13
+
+shoppingmall.html
+쇼핑몰 제작에 필요한 자바스크립트 제작
+사이즈 선택 및 갯수 설정
+
 ## 20/10/10
 
 ScrollSlide.html
