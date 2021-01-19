@@ -1,5 +1,10 @@
 # Javascript-Practice
 
+## 21/01/20
+
+pageSlide 연습
+다음은 스크롤 활용 pageSlide적용 예정
+
 ## 20/10/13
 
 shoppingmall.html
