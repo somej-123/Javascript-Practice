@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageSlide제작</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            height: 970px;
+            overflow: hidden;
+        }
+        #Start{
+            width: 100%;
+            height: 3880px;
+        }
+        #slide1{
+            width: 100%;
+            height: 970px;
+            background-color: #ffe6e6;
+        }
+        #slide2{
+            width: 100%;
+            height: 970px;
+            background-color: #ffabe1;
+        }
+        #slide3{
+            width: 100%;
+            height: 970px;
+            background-color: #a685e2;
+        }
+        #slide4{
+            width: 100%;
+            height: 970px;
+            background-color: #6155a6;
+        }
+        #button{
+            position: fixed;
+            width: 20px;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-right: 20px;
+            text-align: center;
+        }
+        #dotlist{
+            margin: 0 auto;
+            list-style: none;
+        }
+        .dot{
+            width: 10px;
+            height: 10px;
+            background-color: gray;
+            border-radius: 100%;
+            cursor: pointer;
+            margin:0px auto 20px
+        }
+        .on{
+            width: 15px !important;
+            height: 15px !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="Start">
+        <div id="slide1"></div>
+        <div id="slide2"></div>
+        <div id="slide3"></div>
+        <div id="slide4"></div>
+    </div>
+    <div id="button">
+        <ul id="dotlist">
+            <li class="on dot" id="dot1"></li>
+            <li class="dot" id="dot2"></li>
+            <li class="dot" id="dot3"></li>
+            <li class="dot" id="dot4"></li>
+        </ul>
+    </div>
+    <script>
+        $(document).ready(function(){
+            var $dotlist = $("#dotlist").children('li');
+            var $dot = $(".dot");
+            var $index = 0;
+            
+
+            //오른쪽 버튼 클릭했을때 화면 이동
+            $dot.click(function(){
+                $index = $(this).index();
+                if($index == 0){
+                    $("#Start").stop().animate({
+                        "margin-top":0
+                    },1000);
+                    $(this).addClass("on").siblings().removeClass("on");
+                }
+                if($index == 1){
+                    $("#Start").stop().animate({
+                        "margin-top":-970
+                    },1000);
+                    $(this).addClass("on").siblings().removeClass("on");
+                }
+                if($index == 2){
+                    $("#Start").stop().animate({
+                        "margin-top":-1940
+                    },1000);
+                    $(this).addClass("on").siblings().removeClass("on");
+                }
+                if($index == 3){
+                    $("#Start").stop().animate({
+                        "margin-top":-2910
+                    },1000);
+                    $(this).addClass("on").siblings().removeClass("on");
+                }
+            });
+            
+        });
+    </script>
+</body>
+</html>
